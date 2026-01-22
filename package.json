@@ -1,7 +1,7 @@
 {
-  "name": "with-vercel-website",
+  "name": "theezedev",
   "version": "1.0.0",
-  "description": "Website template for Payload",
+  "description": "Blog, portfolio, and resources from Ezekiel Burke, a full-stack developer.",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -25,6 +25,7 @@
   "dependencies": {
     "@payloadcms/admin-bar": "3.70.0",
     "@payloadcms/db-vercel-postgres": "3.70.0",
+    "@payloadcms/email-nodemailer": "^3.72.0",
     "@payloadcms/live-preview-react": "3.70.0",
     "@payloadcms/next": "3.70.0",
     "@payloadcms/plugin-form-builder": "3.70.0",
@@ -39,6 +40,7 @@
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
+    "@vercel/analytics": "^1.6.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
