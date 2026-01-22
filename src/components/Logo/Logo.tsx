@@ -3,27 +3,32 @@ import React from 'react'
 
 interface Props {
   className?: string
-  loading?: 'lazy' | 'eager'
-  priority?: 'auto' | 'high' | 'low'
 }
 
 export const Logo = (props: Props) => {
-  const { loading: loadingFromProps, priority: priorityFromProps, className } = props
-
-  const loading = loadingFromProps || 'lazy'
-  const priority = priorityFromProps || 'low'
+  const { className } = props
 
   return (
-    /* eslint-disable @next/next/no-img-element */
-    <img
-      alt="Payload Logo"
-      width={193}
-      height={34}
-      loading={loading}
-      fetchPriority={priority}
-      decoding="async"
-      className={clsx('max-w-[9.375rem] w-full h-[34px]', className)}
-      src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-logo-light.svg"
-    />
+    <svg
+      viewBox="0 0 150 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={clsx('w-[150px] h-auto', className)}
+      aria-label="theeze.dev logo"
+    >
+      <text
+        x="75"
+        y="20"
+        fontSize="28"
+        fontWeight="700"
+        fontFamily="system-ui, -apple-system, sans-serif"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        className="fill-current"
+      >
+        <tspan className="fill-current">theeze</tspan>
+        <tspan fill="#1DB954">.dev</tspan>
+      </text>
+    </svg>
   )
 }

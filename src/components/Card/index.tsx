@@ -32,14 +32,18 @@ export const Card: React.FC<{
   return (
     <article
       className={cn(
-        'border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer',
+        'border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-[#1DB954]/50 group',
         className,
       )}
       ref={card.ref}
     >
-      <div className="relative w-full ">
+      <div className="relative w-full overflow-hidden">
         {!metaImage && <div className="">No image</div>}
-        {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} size="33vw" />}
+        {metaImage && typeof metaImage !== 'string' && (
+          <div className="transition-transform duration-300 group-hover:scale-110">
+            <Media resource={metaImage} size="33vw" />
+          </div>
+        )}
       </div>
       <div className="p-4">
         {showCategories && hasCategories && (
