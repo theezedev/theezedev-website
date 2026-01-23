@@ -1,8 +1,10 @@
+'use client'
 import type { Post, ArchiveBlock as ArchiveBlockProps } from '@/payload-types'
 
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
+import { motion } from 'framer-motion'
 import RichText from '@/components/RichText'
 
 import { CollectionArchive } from '@/components/CollectionArchive'
@@ -55,9 +57,18 @@ export const ArchiveBlock: React.FC<
   return (
     <div className="my-16" id={`block-${id}`}>
       {introContent && (
-        <div className="container mb-16">
+        <motion.div
+          className="container mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{
+            duration: 0.6,
+            ease: 'easeOut',
+          }}
+        >
           <RichText className="ms-0 max-w-[48rem]" data={introContent} enableGutter={false} />
-        </div>
+        </motion.div>
       )}
       <CollectionArchive posts={posts} />
     </div>
