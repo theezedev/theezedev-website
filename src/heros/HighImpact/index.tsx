@@ -20,16 +20,25 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText,
 
   return (
     <div
-      className="relative -mt-[10.4rem] w-full flex items-center justify-center text-white"
+      className="relative -mt-[10.4rem] mb-0 w-full flex items-center justify-center text-white"
       data-theme="dark"
       data-hero="high-impact"
     >
       <div className="container mb-8 z-10 relative flex items-center justify-center">
-        <div className="max-w-[36.5rem] text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+        <div className="max-w-[36.5rem] text-center drop-shadow-2xl">
+          <h1
+            className="text-5xl md:text-7xl font-bold mb-6"
+            style={{ textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 2px 8px rgba(0, 0, 0, 0.6)' }}
+          >
             <TypingAnimation text="theeze.dev" highlightStart={6} typingSpeed={150} />
           </h1>
-          {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
+          {richText && (
+            <div
+              style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.8), 0 1px 4px rgba(0, 0, 0, 0.6)' }}
+            >
+              <RichText className="mb-6" data={richText} enableGutter={false} />
+            </div>
+          )}
           {Array.isArray(links) && links.length > 0 && (
             <ul className="flex justify-center gap-4 mb-6">
               {links.map(({ link }, i) => {
@@ -56,6 +65,9 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText,
           <Media fill imgClassName="-z-10 object-cover" priority resource={media} />
         )}
       </div>
+
+      {/* Blur fade effect */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/50 to-transparent backdrop-blur-sm z-10" />
     </div>
   )
 }
