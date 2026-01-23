@@ -3,6 +3,7 @@ import { cn } from '@/utilities/ui'
 import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
+import { motion } from 'framer-motion'
 
 import type { Post } from '@/payload-types'
 
@@ -30,13 +31,25 @@ export const Card: React.FC<{
   const href = `/${relationTo}/${slug}`
 
   return (
-    <article
+    <motion.article
       className={cn(
-        'border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-[#1DB954]/50 group',
+        'relative border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer group',
         className,
       )}
       ref={card.ref}
+      whileHover={{
+        scale: 1.05,
+        boxShadow: '0 10px 40px rgba(29, 185, 84, 0.3)',
+      }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.3 }}
     >
+      {/* Animated background gradient */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-[#1DB954]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        initial={false}
+      />
+
       <div className="relative w-full overflow-hidden">
         {!metaImage && <div className="">No image</div>}
         {metaImage && typeof metaImage !== 'string' && (
@@ -45,7 +58,7 @@ export const Card: React.FC<{
           </div>
         )}
       </div>
-      <div className="p-4">
+      <div className="p-4 relative z-10">
         {showCategories && hasCategories && (
           <div className="uppercase text-sm mb-4">
             {showCategories && hasCategories && (
@@ -75,7 +88,11 @@ export const Card: React.FC<{
         {titleToUse && (
           <div className="prose">
             <h3>
-              <Link className="not-prose" href={href} ref={link.ref}>
+              <Link
+                className="not-prose group-hover:text-[#1DB954] transition-colors duration-300"
+                href={href}
+                ref={link.ref}
+              >
                 {titleToUse}
               </Link>
             </h3>
@@ -83,6 +100,6 @@ export const Card: React.FC<{
         )}
         {description && <div className="mt-2">{description && <p>{sanitizedDescription}</p>}</div>}
       </div>
-    </article>
+    </motion.article>
   )
 }
