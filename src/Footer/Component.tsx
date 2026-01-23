@@ -7,11 +7,13 @@ import type { Footer } from '@/payload-types'
 import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
 import { Logo } from '@/components/Logo/Logo'
+import { SocialIcon } from '@/components/SocialIcon'
 
 export async function Footer() {
   const footerData: Footer = await getCachedGlobal('footer', 1)()
 
   const navItems = footerData?.navItems || []
+  const socialLinks = footerData?.socialLinks || []
 
   return (
     <footer className="mt-auto border-t border-border bg-black dark:bg-card text-white">
@@ -27,6 +29,13 @@ export async function Footer() {
               return <CMSLink className="text-white" key={i} {...link} />
             })}
           </nav>
+          {socialLinks.length > 0 && (
+            <div className="flex gap-3">
+              {socialLinks.map((social, i) => (
+                <SocialIcon key={i} platform={social.platform} url={social.url} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </footer>

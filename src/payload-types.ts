@@ -193,14 +193,21 @@ export interface Page {
             /**
              * Choose how the link should be rendered.
              */
-            appearance?: ('default' | 'outline') | null;
+            appearance?: ('default' | 'outline' | 'brand') | null;
           };
+          id?: string | null;
+        }[]
+      | null;
+    socialLinks?:
+      | {
+          platform: 'github' | 'linkedin' | 'twitter' | 'instagram' | 'youtube' | 'facebook' | 'email' | 'globe';
+          url: string;
           id?: string | null;
         }[]
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | GitHubReposBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -526,7 +533,7 @@ export interface ContentBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline') | null;
+          appearance?: ('default' | 'outline' | 'brand') | null;
         };
         id?: string | null;
       }[]
@@ -778,6 +785,21 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GitHubReposBlock".
+ */
+export interface GitHubReposBlock {
+  heading?: string | null;
+  subheading?: string | null;
+  githubUsername: string;
+  maxRepos?: number | null;
+  filterForks?: boolean | null;
+  sortBy?: ('updated' | 'stars' | 'created') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'githubRepos';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1077,6 +1099,13 @@ export interface PagesSelect<T extends boolean = true> {
                   };
               id?: T;
             };
+        socialLinks?:
+          | T
+          | {
+              platform?: T;
+              url?: T;
+              id?: T;
+            };
         media?: T;
       };
   layout?:
@@ -1087,6 +1116,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        githubRepos?: T | GitHubReposBlockSelect<T>;
       };
   meta?:
     | T
@@ -1183,6 +1213,20 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GitHubReposBlock_select".
+ */
+export interface GitHubReposBlockSelect<T extends boolean = true> {
+  heading?: T;
+  subheading?: T;
+  githubUsername?: T;
+  maxRepos?: T;
+  filterForks?: T;
+  sortBy?: T;
   id?: T;
   blockName?: T;
 }
@@ -1684,6 +1728,13 @@ export interface Footer {
         id?: string | null;
       }[]
     | null;
+  socialLinks?:
+    | {
+        platform: 'github' | 'linkedin' | 'twitter' | 'instagram' | 'youtube' | 'facebook' | 'email' | 'globe';
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1727,6 +1778,13 @@ export interface FooterSelect<T extends boolean = true> {
               url?: T;
               label?: T;
             };
+        id?: T;
+      };
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
         id?: T;
       };
   updatedAt?: T;
