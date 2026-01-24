@@ -36,10 +36,12 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div className="my-16" key={index}>
-                  {/* @ts-expect-error there may be some mismatch between the expected types here */}
-                  <Block {...block} disableInnerContainer />
-                </div>
+                <section className="min-h-screen flex items-center justify-center snap-start snap-always" key={index}>
+                  <div className="w-full">
+                    {/* @ts-expect-error there may be some mismatch between the expected types here */}
+                    <Block {...block} disableInnerContainer />
+                  </div>
+                </section>
               )
             }
           }

@@ -27,7 +27,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
-      <body>
+      <body className="scroll-smooth">
         <Providers>
           <AdminBar
             adminBarProps={{
@@ -35,9 +35,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             }}
           />
 
-          <Header />
-          {children}
-          <Footer />
+          <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
+            <Header />
+            {children}
+            <Footer />
+          </div>
         </Providers>
         <Analytics />
       </body>

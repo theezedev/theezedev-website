@@ -19,7 +19,6 @@ import {
   AlignFeature,
   HorizontalRuleFeature,
   UploadFeature,
-  BlocksFeature,
   type LinkFields,
 } from '@payloadcms/richtext-lexical'
 

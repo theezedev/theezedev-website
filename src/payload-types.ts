@@ -1851,6 +1851,17 @@ export interface CodeBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ShareBlock".
+ */
+export interface ShareBlock {
+  title?: string | null;
+  platforms?: ('twitter' | 'linkedin' | 'facebook' | 'reddit' | 'whatsapp' | 'telegram' | 'email' | 'copy')[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'share';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "auth".
  */
 export interface Auth {
