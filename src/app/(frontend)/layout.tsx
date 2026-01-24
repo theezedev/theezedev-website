@@ -13,6 +13,7 @@ import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
 import { Analytics } from '@vercel/analytics/next'
+import { SnapScrollWrapper } from '@/components/SnapScrollWrapper'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
@@ -35,11 +36,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             }}
           />
 
-          <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
+          <SnapScrollWrapper>
             <Header />
             {children}
             <Footer />
-          </div>
+          </SnapScrollWrapper>
         </Providers>
         <Analytics />
       </body>

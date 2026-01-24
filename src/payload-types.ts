@@ -207,7 +207,15 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | GitHubReposBlock)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | GitHubReposBlock
+    | ProfileBlock
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -803,6 +811,32 @@ export interface GitHubReposBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProfileBlock".
+ */
+export interface ProfileBlock {
+  image: number | Media;
+  name: string;
+  bio: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'profile';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1117,6 +1151,7 @@ export interface PagesSelect<T extends boolean = true> {
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         githubRepos?: T | GitHubReposBlockSelect<T>;
+        profile?: T | ProfileBlockSelect<T>;
       };
   meta?:
     | T
@@ -1227,6 +1262,17 @@ export interface GitHubReposBlockSelect<T extends boolean = true> {
   maxRepos?: T;
   filterForks?: T;
   sortBy?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProfileBlock_select".
+ */
+export interface ProfileBlockSelect<T extends boolean = true> {
+  image?: T;
+  name?: T;
+  bio?: T;
   id?: T;
   blockName?: T;
 }
