@@ -137,5 +137,7 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
 export function generateMetadata(): Metadata {
   return {
     title: `theeze.dev Posts`,
+    description:
+      'Browse technical articles, tutorials, and insights on web development, software engineering, and modern development practices.',
   }
 }

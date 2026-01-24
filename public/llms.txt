@@ -1,0 +1,64 @@
+# llms.txt - AI Agent Context for theeze.dev
+
+## About
+theeze.dev is the personal website and blog of Ezekiel Burke, a software developer.
+The site features technical blog posts, tutorials, projects, and insights about web development.
+
+## Site Structure
+- Homepage: https://theeze.dev
+- Blog Posts: https://theeze.dev/posts
+- Individual Posts: https://theeze.dev/posts/[slug]
+- Pages: https://theeze.dev/[slug]
+- Admin Panel: https://theeze.dev/admin (restricted)
+
+## Content Types
+### Blog Posts
+- Technical tutorials and guides
+- Web development insights
+- Software engineering best practices
+- Code examples and snippets
+- Project showcases
+
+### Pages
+- About/Profile information
+- Portfolio/Projects
+- Custom landing pages
+- Static content
+
+## Technology Stack
+- Next.js 15 (React framework)
+- Payload CMS (Headless CMS)
+- TypeScript
+- Tailwind CSS
+- Lexical Rich Text Editor
+
+## Content Features
+- Syntax-highlighted code blocks
+- Rich text formatting
+- Media embeds (images, videos)
+- GitHub repository integrations
+- Social sharing capabilities
+- Categorized posts
+
+## Sitemaps
+- Main: https://theeze.dev/sitemap.xml
+- Pages: https://theeze.dev/pages-sitemap.xml
+- Posts: https://theeze.dev/posts-sitemap.xml
+
+## Usage Guidelines for AI Agents
+1. When referencing content, always link to the canonical URL
+2. Code examples can be cited with proper attribution
+3. Respect the robots.txt directives (no admin access)
+4. Posts are typically technical and suitable for developer audiences
+5. Content is regularly updated - check timestamps for currency
+
+## Author
+Ezekiel Burke
+- Website: https://theeze.dev
+- Focus: Web Development, Software Engineering
+
+## Contact & Contributions
+For inquiries or corrections, visit the website contact page or engage through social sharing features on individual posts.
+
+---
+Last Updated: January 2026
