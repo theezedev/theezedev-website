@@ -21,7 +21,7 @@ export function Giscus() {
         inputPosition="bottom"
         theme={theme === 'dark' ? 'dark' : 'light'}
         lang="en"
-        loading="lazy"
+        loading="eager"
       />
     </div>
   )
