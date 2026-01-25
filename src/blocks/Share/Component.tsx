@@ -47,7 +47,7 @@ export const ShareBlock: React.FC<Props> = ({ className, title, platforms }) => 
   return (
     <div className={cn('my-12 w-full', className)}>
       <div className="max-w-3xl mx-auto px-4">
-        <div className="bg-card border border-border rounded-lg p-8">
+        <div>
           {title && (
             <h3 className="text-xl font-semibold text-center mb-6 text-foreground">{title}</h3>
           )}

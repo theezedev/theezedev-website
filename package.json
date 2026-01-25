@@ -23,6 +23,7 @@
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
   },
   "dependencies": {
+    "@giscus/react": "^3.1.0",
     "@payloadcms/admin-bar": "3.72.0",
     "@payloadcms/db-vercel-postgres": "3.72.0",
     "@payloadcms/email-nodemailer": "3.72.0",

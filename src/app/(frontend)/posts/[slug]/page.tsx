@@ -14,6 +14,7 @@ import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { Giscus } from '@/components/Giscus'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -64,7 +65,10 @@ export default async function Post({ params: paramsPromise }: Args) {
 
       <div className="flex flex-col items-center gap-4 pt-8">
         <div className="container">
-          <RichText className="max-w-[48rem] mx-auto" data={post.content} enableGutter={false} />
+          <div className="max-w-[48rem] mx-auto bg-card/80 backdrop-blur-sm rounded-lg border border-border/50 px-8 py-10 shadow-sm">
+            <RichText data={post.content} enableGutter={false} />
+            <Giscus />
+          </div>
           {post.relatedPosts && post.relatedPosts.length > 0 && (
             <RelatedPosts
               className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr]"

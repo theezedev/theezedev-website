@@ -26,7 +26,13 @@ export async function Footer() {
           <ThemeSelector />
           <nav className="flex flex-col md:flex-row gap-4">
             {navItems.map(({ link }, i) => {
-              return <CMSLink className="text-white" key={i} {...link} />
+              return (
+                <CMSLink
+                  className="relative text-sm font-medium transition-colors text-white hover:text-[#1DB954] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#1DB954] after:transition-all after:duration-300 hover:after:w-full"
+                  key={i}
+                  {...link}
+                />
+              )
             })}
           </nav>
           {socialLinks.length > 0 && (
