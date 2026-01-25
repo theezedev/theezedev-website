@@ -9,6 +9,7 @@ import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { GitHubReposBlock } from '@/blocks/GitHubRepos/Component'
 import { ProfileBlock } from '@/blocks/Profile/Component'
+import { ScrollReveal } from '@/components/ScrollReveal'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -38,15 +39,14 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <section
-                  className="min-h-screen flex items-center justify-center snap-start snap-always"
-                  key={index}
-                >
-                  <div className="w-full">
-                    {/* @ts-expect-error there may be some mismatch between the expected types here */}
-                    <Block {...block} disableInnerContainer />
-                  </div>
-                </section>
+                <ScrollReveal key={index} delay={index * 0.1}>
+                  <section className="flex items-center justify-center py-16">
+                    <div className="w-full">
+                      {/* @ts-expect-error there may be some mismatch between the expected types here */}
+                      <Block {...block} disableInnerContainer />
+                    </div>
+                  </section>
+                </ScrollReveal>
               )
             }
           }

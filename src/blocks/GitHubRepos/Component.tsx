@@ -140,37 +140,13 @@ export const GitHubReposBlock: React.FC<GitHubReposBlockType> = ({
   return (
     <div className="container my-16">
       <div className="text-center mb-12">
-        {heading && (
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            {heading}
-          </motion.h2>
-        )}
+        {heading && <h2 className="text-4xl md:text-5xl font-bold mb-4">{heading}</h2>}
         {subheading && (
-          <motion.p
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            {subheading}
-          </motion.p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{subheading}</p>
         )}
       </div>
 
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {repos.map((repo) => (
           <motion.a
             key={repo.id}
@@ -310,16 +286,10 @@ export const GitHubReposBlock: React.FC<GitHubReposBlockType> = ({
             </motion.div>
           </motion.a>
         ))}
-      </motion.div>
+      </div>
 
       {/* View all repos link */}
-      <motion.div
-        className="text-center mt-12"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
+      <div className="text-center mt-12">
         <a
           href={`https://github.com/${githubUsername}`}
           target="_blank"
@@ -342,7 +312,7 @@ export const GitHubReposBlock: React.FC<GitHubReposBlockType> = ({
             />
           </svg>
         </a>
-      </motion.div>
+      </div>
     </div>
   )
 }

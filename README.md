@@ -1,81 +1,95 @@
-# Payload Website Template
+# theezedev.com
 
-This is the official [Payload Website Template](https://github.com/payloadcms/payload/blob/main/templates/website). Use it to power websites, blogs, or portfolios from small to enterprise. This repo includes a fully-working backend, enterprise-grade admin panel, and a beautifully designed, production-ready website.
+My personal website, blog, and portfolio built with [Payload CMS](https://payloadcms.com) and [Next.js](https://nextjs.org). This is where I share my thoughts on full-stack development, write technical tutorials, and showcase my work.
 
-You can deploy to Vercel, using Neon and Vercel Blob Storage with one click:
+🌐 **Live Site:** [theezedev.com](https://theezedev.com) (or your actual URL)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?build-command=pnpm%20run%20ci&demo-description=A%20production-ready%20website%20built%20with%20Payload%2C%20the%20only%20Next.js-native%20CMS.&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F1EyBgbstPv4d6NMwzldDyY%2F58d07399ce2a2bb51341125fe4f51572%2Fpayloadwebsitetempate_vercel_thumbnail.jpg&demo-title=Payload%20Website%20Starter&demo-url=https%3A%2F%2Fpayload-vercel-website-demo.vercel.app%2F&env=PAYLOAD_SECRET%2CCRON_SECRET%2CPREVIEW_SECRET&from=templates&project-name=Payload%20Website%20Starter&repository-name=payload-website-starter&repository-url=https%3A%2F%2Fgithub.com%2Fpayloadcms%2Fpayload%2Ftree%2Fmain%2Ftemplates%2Fwith-vercel-website&skippable-integrations=1&stores=%255B%257B%2522type%2522%253A%2522integration%2522%252C%2522productSlug%2522%253A%2522neon%2522%252C%2522integrationSlug%2522%253A%2522neon%2522%257D%252C%257B%2522type%2522%253A%2522blob%2522%257D%255D)
+## ✨ Features
 
-This template is right for you if you are working on:
+This site is built on the Payload Website Template with several custom enhancements:
 
-- A personal or enterprise-grade website, blog, or portfolio
-- A content publishing platform with a fully featured publication workflow
-- Exploring the capabilities of Payload
+### Core Features
+- 📝 **Blog with Full CMS** - Write and publish posts with a powerful admin panel
+- 🎨 **Layout Builder** - Create custom page layouts with pre-built blocks
+- 🌙 **Dark Mode** - Seamless theme switching with persistent preference
+- 🔍 **Full-Text Search** - Find content across the entire site
+- 📱 **Fully Responsive** - Beautiful design on all devices
+- ⚡ **Static Generation** - Lightning-fast page loads with Next.js
+- 🔐 **Draft Preview** - Preview content before publishing
+- 📊 **SEO Optimized** - Meta tags, OpenGraph, and sitemap generation
 
-Core features:
+### Custom Enhancements
+- 💬 **GitHub Discussions Comments** - Integrated [giscus](https://giscus.app) for blog comments
+- 🎭 **Geometric Background Pattern** - Custom SVG pattern with theme-aware opacity
+- 🎯 **Enhanced Navigation** - Smooth hover effects with animated underlines
+- 📦 **Content Card Design** - Frosted glass effect for post content readability
+- 🔗 **Social Sharing** - Native share buttons for all major platforms
 
-- [Pre-configured Payload Config](#how-it-works)
-- [Authentication](#users-authentication)
-- [Access Control](#access-control)
-- [Layout Builder](#layout-builder)
-- [Draft Preview](#draft-preview)
-- [Live Preview](#live-preview)
-- [On-demand Revalidation](#on-demand-revalidation)
-- [SEO](#seo)
-- [Search](#search)
-- [Redirects](#redirects)
-- [Jobs and Scheduled Publishing](#jobs-and-scheduled-publish)
-- [Website](#website)
+## 🛠 Tech Stack
 
-## Quick start – Deploying to Vercel
+- **CMS:** [Payload 3.x](https://payloadcms.com)
+- **Framework:** [Next.js 15](https://nextjs.org) (App Router)
+- **Database:** [Neon Postgres](https://neon.tech)
+- **Storage:** [Vercel Blob](https://vercel.com/storage/blob)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com) + [shadcn/ui](https://ui.shadcn.com)
+- **Hosting:** [Vercel](https://vercel.com)
+- **Comments:** [giscus](https://giscus.app)
+- **Language:** [TypeScript](https://www.typescriptlang.org)
 
-Click the 'Deploy' button to spin up this template directly into Vercel hosting. It will first prompt you save this template into your own Github repo so that you own the code and can make any changes you want to it. You will be prompted to set up the required services and secrets. Once the app is built and deployed, you can visit your site using the generated URL.
+## 🚀 Local Development
 
-Set up the following services and secrets and then once the app has been built and deployed you will be able to visit your site at the generated URL.
+If you want to run this project locally or use it as inspiration for your own site:
 
-From this point on you can access your admin panel at `/admin` of your app URL, create an admin user and then click the 'Seed the database' button in the dashboard to add content into your app.
+### Prerequisites
+- Node.js 18+ and pnpm installed
+- Postgres database (local or cloud)
 
-### Services
+### Setup
 
-This project uses the following services integrated into Vercel which you will need to click "Add" and "Connect" for:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/theezedev/theezedev-website.git
+   cd theezedev-website
+   ```
 
-Neon Database - Postgres-based cloud database used to host your data
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
 
-Vercel Blob Storage - object storage used to host your files such as images and videos
+3. **Configure environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Add your database connection string and other secrets to `.env`:
+   - `POSTGRES_URL` - Your Postgres connection string
+   - `PAYLOAD_SECRET` - Random secret for JWT signing
+   - `CRON_SECRET` - Secret for cron job authentication
+   - `PREVIEW_SECRET` - Secret for draft preview authentication
+   - `BLOB_READ_WRITE_TOKEN` - Vercel Blob storage token (optional)
 
-The connection variables will automatically be setup for you on Vercel when these services are connected.
+4. **Run the development server**
+   ```bash
+   pnpm dev
+   ```
 
-#### Secrets
+5. **Open the site**
+   - Frontend: http://localhost:3000
+   - Admin Panel: http://localhost:3000/admin
 
-You will be prompted to add the following secret values to your project. These should be long unguessable strong passwords, you can also use a password manager to generate one for these.
+6. **Create your first user**
+   Follow the on-screen instructions to create an admin account.
 
-CRON_SECRET - used for running cron on Vercel
+### Seeding the Database
 
-PAYLOAD_SECRET - used by Payload to sign secrets like JWT tokens
+To populate the database with sample content:
+1. Log into the admin panel at `/admin`
+2. Click the "Seed database" button in the dashboard
 
-PREVIEW_SECRET - used by Payload for secured live previews of your content
+⚠️ **Warning:** Seeding drops the current database!
 
-## Quick Start - local setup
-
-To spin up this template locally, follow these steps:
-
-### Clone
-
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
-
-### Development
-
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `POSTGRES_URL` and `BLOB_READ_WRITE_TOKEN` from your Vercel project to your `.env` if you want to use Vercel Blob and the Neon database that was created for you.
-
-   > _NOTE: If the connection string value includes `localhost` or `127.0.0.1`, the code will automatically use a normal postgres adapter instead of Vercel._. You can override this functionality by setting `forceUseVercelPostgres: true` if desired.
-
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
-
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
-
-#### Docker (Optional)
+### Docker (Optional)
 
 If you prefer to use Docker for local development instead of a local Postgres instance, the provided docker-compose.yml file can be used.
 
@@ -269,6 +283,20 @@ The seed script will also create a demo user for demonstration purposes only:
 
 > NOTICE: seeding the database is destructive because it drops your current database to populate a fresh one from the seed template. Only run this command if you are starting a new project or can afford to lose your current data.
 
-## Questions
+## 📄 License
 
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+MIT License - Feel free to use this code as inspiration for your own projects!
+
+## 🙏 Acknowledgments
+
+Built with the excellent [Payload CMS Website Template](https://github.com/payloadcms/payload/tree/main/templates/website).
+
+## 📬 Contact
+
+- Website: [theezedev.com](https://theezedev.com)
+- GitHub: [@theezedev](https://github.com/theezedev)
+- Email: zeke@ironelephantsolutions.com
+
+---
+
+**Questions about the code?** Feel free to open an issue or reach out. I'm happy to help other developers learn from this project!
