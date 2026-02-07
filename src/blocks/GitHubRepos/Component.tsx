@@ -64,7 +64,7 @@ export const GitHubReposBlock: React.FC<GitHubReposBlockType> = ({
   subheading,
   githubUsername,
   maxRepos = 6,
-  filterForks = true,
+  filterForks = false,
   sortBy = 'updated',
 }) => {
   const [repos, setRepos] = useState<GitHubRepo[]>([])
