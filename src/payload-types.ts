@@ -200,7 +200,16 @@ export interface Page {
       | null;
     socialLinks?:
       | {
-          platform: 'github' | 'linkedin' | 'twitter' | 'instagram' | 'youtube' | 'facebook' | 'email' | 'globe';
+          platform:
+            | 'github'
+            | 'linkedin'
+            | 'twitter'
+            | 'bluesky'
+            | 'instagram'
+            | 'youtube'
+            | 'facebook'
+            | 'email'
+            | 'globe';
           url: string;
           id?: string | null;
         }[]
@@ -1776,7 +1785,16 @@ export interface Footer {
     | null;
   socialLinks?:
     | {
-        platform: 'github' | 'linkedin' | 'twitter' | 'instagram' | 'youtube' | 'facebook' | 'email' | 'globe';
+        platform:
+          | 'github'
+          | 'linkedin'
+          | 'twitter'
+          | 'bluesky'
+          | 'instagram'
+          | 'youtube'
+          | 'facebook'
+          | 'email'
+          | 'globe';
         url: string;
         id?: string | null;
       }[]
