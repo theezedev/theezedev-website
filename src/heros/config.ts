@@ -72,6 +72,7 @@ export const hero: Field = {
             { label: 'GitHub', value: 'github' },
             { label: 'LinkedIn', value: 'linkedin' },
             { label: 'Twitter/X', value: 'twitter' },
+            { label: 'Bluesky', value: 'bluesky' },
             { label: 'Instagram', value: 'instagram' },
             { label: 'YouTube', value: 'youtube' },
             { label: 'Facebook', value: 'facebook' },
